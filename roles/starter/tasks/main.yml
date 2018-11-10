@@ -1,0 +1,8 @@
+---
+- name: Installation des packets de demarage
+  apt:
+    pkg: 
+      - git
+      - vim
+      - zsh
+...

@@ -1,0 +1,12 @@
+---
+- name: Installation des serveurs web
+  hosts: web
+  remote_user: root
+  vars: 
+    user: deploy
+    domain: dmkreation.fr
+  roles:
+    - starter
+    - deployer
+    - nginx
+...
