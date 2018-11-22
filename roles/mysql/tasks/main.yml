@@ -2,4 +2,22 @@
 - name: Install Mysql-server
   become: yes
   apt: name=mysql-server state=latest
+
+- name: Remove all anonymous user
+  mysql_user:
+    name: ''
+    host: localhost
+    state: absent
+
+- name: Create database user with all database privileges
+  mysql_user:
+    name: bob
+    password: 12345
+    priv: '*.*:ALL'
+    state: present
+
+- name: Create a new database with name 'my_project_db_name_production'
+  mysql_db:
+    name: my_project_db_name_production
+    state: present
 ...
