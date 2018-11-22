@@ -1,0 +1,21 @@
+---
+- name: Install nvm
+  git: repo=https://github.com/creationix/nvm.git dest=~/.nvm version=v0.33.11
+  tags: nvm
+
+- name: Source nvm in ~/.profile
+  lineinfile: >
+      dest=~/.profile
+      line="source ~/.nvm/nvm.sh"
+      create=yes
+  tags: nvm
+
+# Ne fonctionne pas actuellement, se connecter en ssh avec l'user deploy et executer la commande nvm install 8.11.3
+# - name: Install node v 8.11.3
+#   become: yes
+#   become_user: deploy
+#   command: nvm install 8.11.3
+#   tags: nvm
+...
+
+

@@ -16,3 +16,8 @@ run
 ```shell
 ansible-playbook -i hosts playbook.yml
 ```
+
+nvm install command with ansible dosent work actually, connect on server with deploy user and run 
+```shell
+nvm install 8.11.3 # or latest
+```

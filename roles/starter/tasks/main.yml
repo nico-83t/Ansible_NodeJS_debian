@@ -5,4 +5,7 @@
       - git
       - vim
       - zsh
+      - curl
+      - build-essential
+      - libssl-dev
 ...

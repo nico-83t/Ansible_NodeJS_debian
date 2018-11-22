@@ -6,9 +6,10 @@
     user: deploy
     domain: dmkreation.fr
   roles:
-    # - starter
+    - starter
     # - deployer
     # # Attention, l'app nodeJS doit être en service via p2m avant d'installer nginx
     # - nginx
-    - mysql
+    # - mysql
+    # - node
 ...

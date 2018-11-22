@@ -11,7 +11,7 @@
   template: src=templates/nginx.j2 dest=/etc/nginx/sites-available/{{ domain }}_{{ item.env }}
   with_items:
     - {env: production, port: 80, node_port: 5000}
-    - {env: staging, port: 7456, node_port: 5001}
+    # - {env: staging, port: 7456, node_port: 5001}
 
 - name: Activation du domaine {{ domain }}
   with_items:
