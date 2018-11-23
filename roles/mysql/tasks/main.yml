@@ -13,16 +13,16 @@
     host: localhost
     state: absent
 
-- name: Create a new database with name 'my_project_db_name_production'
+- name: Create a new database with name '{{db_name}}'
   mysql_db:
-    name: my_project_db_name_production
+    name: "{{ db_name }}"
     state: present
 
-- name: Create database user with all database privileges
+- name: Create database {{ user }} with all database privileges
   mysql_user:
-    name: bob
-    password: 12345
-    priv: 'my_project_db_name_production.*:ALL'
+    name: "{{ user }}"
+    password: "{{ my_db_password }}"
+    priv: '{{db_name}}.*:ALL'
     state: present
 
 ...

@@ -1,15 +1,17 @@
 ---
 - name: Installation des serveurs web
   hosts: web
-  remote_user: root
+  remote_user: root # utiliser pour se connecter et executer les actions (par defaut si aucun autre user n'est spécifié dans les tasks)
   vars: 
-    user: deploy
-    domain: dmkreation.fr
+    user: deploy # nom d'utilisateur qui sera utilisé pour l'accés ssh et la création des dossiers
+    domain: mydomain.fr # nom de domaine utilisé pour la configuration nginx et la création des dossiers
+    db_name: my_db_name_production # nom de la base de donnée qui va être créer le user défini plus haut aura tout les droits sur cette base
+    my_db_password: "my_db_password" # mot de passe mysql qui sera attribué à l'user défini plus haut
   roles:
-    # - starter
-    # - deployer
+    - starter
+    - deployer
     # # Attention, l'app nodeJS doit être en service via p2m avant d'installer nginx
+    - node
+    - mysql
     - nginx
-    # - mysql
-    # - node
 ...
