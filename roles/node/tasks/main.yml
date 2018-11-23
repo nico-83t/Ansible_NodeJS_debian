@@ -16,6 +16,11 @@
 #   become_user: deploy
 #   command: nvm install 8.11.3
 #   tags: nvm
+- name: Install "pm2" node.js package globally.
+  npm:
+    name: pm2
+    global: yes
+
 ...
 
 

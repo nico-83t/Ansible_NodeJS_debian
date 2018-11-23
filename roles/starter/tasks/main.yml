@@ -6,6 +6,12 @@
       - vim
       - zsh
       - curl
+      - openssl
       - build-essential
       - libssl-dev
 ...
+
+# Commande pour faire en sorte qu'un utilisateur non root (deploy) puisse démarrer un app node sur le port 80
+# inutile si nginx
+# sudo apt-get installez libcap2-bin
+# sudo setcap cap_net_bind_service = + ep / usr / local / bin / node

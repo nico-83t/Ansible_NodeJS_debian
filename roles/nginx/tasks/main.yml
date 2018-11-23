@@ -16,7 +16,7 @@
 - name: Activation du domaine {{ domain }}
   with_items:
     - production
-    - staging
+    # - staging
   file: src=/etc/nginx/sites-available/{{ domain }}_{{ item }} dest=/etc/nginx/sites-enabled/{{ domain }}_{{ item }} state=link
   notify: nginx reload
 ...
