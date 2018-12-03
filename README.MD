@@ -96,9 +96,9 @@ A la suite de la dernnière commande, une liste de fichiers et dossiers vont êt
 ├── Capfile
 ├── config
 │   ├── deploy
-│   │   ├── production.rb # Configuration propre à l'environnement de production
+│   │   ├── production.rb # Configuration du serveur et de l'user qui se connecte
 │   │   └── staging.rb
-│   └── deploy.rb # Configuration du serveur et de l'user qui se connecte
+│   └── deploy.rb # Configuration partagé
 └── lib
     └── capistrano
             └── tasks
