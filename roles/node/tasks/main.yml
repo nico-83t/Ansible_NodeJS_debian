@@ -3,37 +3,27 @@
   git: repo=https://github.com/creationix/nvm.git dest=~/.nvm version=v0.33.11
   tags: nvm
 
-- name: Source nvm in ~/.profile
+- name: Source nvm in ~/.{{ item }}
   lineinfile: >
-      dest=~/.profile
-      line="source ~/.nvm/nvm.sh"
-      create=yes
+    dest=~/.{{ item }}
+    line="source ~/.nvm/nvm.sh"
+    create=yes
   tags: nvm
-
-- name: Source nvm in ~/.bashrc
-  lineinfile: >
-      dest=~/.bashrc
-      line="source ~/.nvm/nvm.sh"
-      create=yes
-  tags: nvm
+  with_items:
+    - bashrc
+    - profile
 
 - name: Install node and set version
-  shell: >
-    "nvm install 8.11.3 && nvm alias default 8.11.3"
+  become: yes
+  become_user: root
+  shell: "source /root/.nvm/nvm.sh && nvm install {{ node_version }}" 
+  args:
+    executable: /bin/bash
 
-# Ne fonctionne pas actuellement, se connecter en ssh avec l'user deploy et executer la commande nvm install 8.11.3
-# - name: Install node v 8.11.3
-#   become: yes
-#   become_user: deploy
-#   command: nvm install 8.11.3
-#   tags: nvm
-
-# Ne fonctionne pas actuellement, se connecter en ssh avec l'user deploy et executer la commande npm install pm2 -g
-# - name: Install "pm2" node.js package globally.
-#   npm:
-#     name: pm2
-#     global: yes
-
+- name: Install "pm2" node.js package globally.
+  npm:
+    name: pm2
+    global: yes
 ...
 
 
