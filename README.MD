@@ -1,7 +1,7 @@
 # Ansible configuration for NodeJS APPs
 ## Configuration
 #### Server side
-- Sur serveur Debian ou Ubuntu (non testé sur ubuntu)
+- Sur serveur Debian ou Ubuntu (testé sur Debian Stretch)
 - Il est nécessaire d'avoir pré-configuré un accés root ssh avec les clefs associées
 ```shell
 ssh root@xxx.xxx.xxx.xxx
