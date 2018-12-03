@@ -3,7 +3,7 @@
   git: repo=https://github.com/creationix/nvm.git dest=~/.nvm version=v0.33.11
   tags: nvm
 
-- name: Source nvm in ~/.{{ item }}
+- name: Source nvm in bash profile
   lineinfile: >
     dest=~/.{{ item }}
     line="source ~/.nvm/nvm.sh"
@@ -13,7 +13,7 @@
     - bashrc
     - profile
 
-- name: Install node and set version
+- name: "Install node and set version {{ node_version }}"
   become: yes
   become_user: root
   shell: "source /root/.nvm/nvm.sh && nvm install {{ node_version }}" 

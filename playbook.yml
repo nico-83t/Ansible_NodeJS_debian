@@ -9,10 +9,10 @@
     my_db_password: "my_db_password" # mot de passe mysql qui sera attribué à l'user défini plus haut
     node_version: "8.11.3" # version de node à installer via nvm
   roles:
-    # - starter
-    # - deployer
+    - starter
+    - deployer
     # # Attention, l'app nodeJS doit être en service via p2m avant d'installer nginx
     - node
-    # - mysql
+    - mysql
     # - nginx
 ...
