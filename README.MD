@@ -29,3 +29,5 @@ les commandes nvm et npm ne fonctionne pas très bien avec ansible, il faut donc
 nvm install 8.11.3 # or latest
 npm install pm2 -g
 ```
+
+<!-- client_max_body_size 2M; -->

@@ -10,6 +10,17 @@
       create=yes
   tags: nvm
 
+- name: Source nvm in ~/.bashrc
+  lineinfile: >
+      dest=~/.bashrc
+      line="source ~/.nvm/nvm.sh"
+      create=yes
+  tags: nvm
+
+- name: Install node and set version
+  shell: >
+    "nvm install 8.11.3 && nvm alias default 8.11.3"
+
 # Ne fonctionne pas actuellement, se connecter en ssh avec l'user deploy et executer la commande nvm install 8.11.3
 # - name: Install node v 8.11.3
 #   become: yes

@@ -8,10 +8,10 @@
     db_name: my_db_name_production # nom de la base de donnée qui va être créer le user défini plus haut aura tout les droits sur cette base
     my_db_password: "my_db_password" # mot de passe mysql qui sera attribué à l'user défini plus haut
   roles:
-    - starter
-    - deployer
+    # - starter
+    # - deployer
     # # Attention, l'app nodeJS doit être en service via p2m avant d'installer nginx
     - node
-    - mysql
-    - nginx
+    # - mysql
+    # - nginx
 ...

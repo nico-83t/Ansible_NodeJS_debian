@@ -1,6 +1,6 @@
 ---
 - name: Creation d'un utilisateur
-  user: name={{ user }} comment="Creation de l'user de deploiement" shell="/usr/bin/zsh"
+  user: name={{ user }} comment="Creation de l'user de deploiement"
 - name: Ajout de la clef SSH
   authorized_key: user={{ user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 - name: Creates {{ user }} directory

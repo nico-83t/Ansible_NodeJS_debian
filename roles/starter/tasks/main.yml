@@ -1,10 +1,10 @@
 ---
 - name: Installation des packets de demarage
   apt:
+    update_cache: yes
     pkg: 
       - git
       - vim
-      - zsh
       - curl
       - openssl
       - build-essential

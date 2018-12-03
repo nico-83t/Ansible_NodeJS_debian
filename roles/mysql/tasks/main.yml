@@ -1,11 +1,13 @@
 ---
 - name: Install Mysql-server
-  become: yes
-  apt: name=mysql-server state=latest
-
-- name: Install Mysql-python-connector
-  become: yes
-  apt: name=python-mysql.connector state=latest
+  apt:
+    update_cache: yes
+    pkg: 
+      - mysql-client
+      - python3-dev
+      - python3-mysqldb
+      - python-mysqldb
+      - mysql-server
 
 - name: Remove all anonymous user
   mysql_user:
