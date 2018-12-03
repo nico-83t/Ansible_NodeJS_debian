@@ -15,7 +15,7 @@
 
 - name: Delete default nginx file
   file:
-    path: /etc/nginx/site-enabled/default
+    path: /etc/nginx/sites-enabled/default
     state: absent
 
 - name: Activation du domaine {{ domain }}
@@ -24,4 +24,7 @@
     # - staging
   file: src=/etc/nginx/sites-available/{{ domain }}_{{ item }} dest=/etc/nginx/sites-enabled/{{ domain }}_{{ item }} state=link
   notify: nginx reload
+
+- name: restart nginx
+  service: name=nginx state=restarted
 ...
