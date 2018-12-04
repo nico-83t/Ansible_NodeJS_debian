@@ -30,8 +30,8 @@
 ### Mysql
 [Installe mysql](roles/mysql/tasks/main.yml)
 - Installation des dépendances
-- Suppression des utilisteurs anonyme
-- Création d'une base de donnée (nom dans [playbook.yml](playbook.yml#L8))
+- Suppression des utilisteurs anonymes
+- Création d'une base de données (nom dans [playbook.yml](playbook.yml#L8))
 - Attribution des droits à l'utilisateur (username dans [playbook.yml](playbook.yml#L6))
 
 ### Nginx
@@ -39,8 +39,8 @@ Attention, il faut avoir déployé l'application avant cette étape !
 [Installe et configure nginx](roles/nginx/tasks/main.yml)
 - Installation de nginx
 - Configuration des apps par domaine et par environnement ([ici](roles/nginx/tasks/main.yml#L13) et [ici](roles/nginx/tasks/main.yml#L23))
-- Suppression de la config par  défaut
-- Redemarage de nginx
+- Suppression de la config par défaut
+- Redémarrage de nginx
 
 ## Configuration
 #### Server side
@@ -56,7 +56,7 @@ ssh root@xxx.xxx.xxx.xxx
 hosts file
 ```
 # Modifier l'adresse ip dans le fichier host avec celle de votre serveur
-# Il est possible d'utiliser plusieurs adresses ip simultanement (1 ligne / ip)
+# Il est possible d'utiliser plusieurs adresses ip simultanément (1 ligne / ip)
 [web]
 71.85.130.169
 ```
@@ -134,7 +134,7 @@ bundle install
 
 bundle exec cap install
 ```
-A la suite de la dernnière commande, une liste de fichiers et dossiers vont être créé
+A la suite de la dernnière commande, une liste de fichiers et dossiers vont être créés
 ```shell
 ├── Capfile
 ├── config
