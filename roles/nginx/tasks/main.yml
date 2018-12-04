@@ -1,6 +1,6 @@
 ---
 - name: Install Nginx
-  become: yes
+	become: yes
   apt: name=nginx state=latest
 
 - name: Start Nginx

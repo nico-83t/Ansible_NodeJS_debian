@@ -1,4 +1,45 @@
 # Ansible configuration for NodeJS APPs
+## Liste des taches
+### Starter
+[Installe une liste de packet](roles/starter/tasks/main.yml#L5)
+- git
+- vim
+- curl
+- openssl
+- build-essential
+- libssl-dev
+
+### Deployer
+[Utilisateur et structure](roles/deployer/tasks/main.yml)
+- Création d'un nouvel utilisateur (username dans [playbook.yml](playbook.yml#L6))
+- Configuration des accès ssh
+- Création des dossiers de déploiement par domaine et par environnement 
+`/home/{{ username }}/www/{{ domain }}/{{ env }}`
+`/home/deploy/www/mydomain.fr/production`
+- Création des dossier pour les logs
+`/home/deploy/www/mydomain.fr/logs`
+
+### Node
+[Installe les dépendances pour le fonctionnement de node](roles/node/tasks/main.yml)
+- Installation de nvm (version dans [playbook.yml](playbook.yml#L11))
+- Installation de node (version dans [playbook.yml](playbook.yml#L10))
+- Installation de pm2
+
+### Mysql
+[Installe mysql](roles/mysql/tasks/main.yml)
+- Installation des dépendances
+- Suppression des utilisteurs anonyme
+- Création d'une base de donnée (nom dans [playbook.yml](playbook.yml#L8))
+- Attribution des droits à l'utilisateur (username dans [playbook.yml](playbook.yml#L6))
+
+### Nginx
+Attention, il faut avoir déployé l'application avant cette étape !
+[Installe et configure nginx](roles/nginx/tasks/main.yml)
+- Installation de nginx
+- Configuration des apps par domaine et par environnement ([ici](roles/nginx/tasks/main.yml#L13) et [ici](roles/nginx/tasks/main.yml#L23))
+- Suppression de la config par  défaut
+- Redemarage de nginx
+
 ## Configuration
 #### Server side
 - Sur serveur Debian ou Ubuntu (testé sur Debian Stretch)

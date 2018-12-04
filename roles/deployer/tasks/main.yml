@@ -1,23 +1,28 @@
 ---
 - name: Creation d'un utilisateur
   user: name={{ user }} comment="Creation de l'user de deploiement"
+
 - name: Ajout de la clef SSH
   authorized_key: user={{ user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
 - name: Creates {{ user }} directory
   remote_user: "{{user}}"
   file: path=/home/{{ user }}/www state=directory
+
 - name: Create deploy directories
   remote_user: "{{ user }}"
   file: path="/home/{{ user }}/www/{{ domain }}/{{ item }}" state=directory
   with_items:
     - production
     # - staging
+
 - name: Create deploy test files
   remote_user: "{{ user }}"
   template: src=templates/html_test.j2 dest=/home/{{ user }}/www/{{ domain }}/{{ item }}/index.html
   with_items:
     - production
     # - staging
+
 - name: Creation du repertoire pour les logs
   file: path=/home/{{ user }}/www/{{ domain }}/logs/ state=directory
 ...
