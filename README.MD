@@ -1,4 +1,6 @@
 # Ansible configuration for NodeJS APPs
+## Config et deploy en vidéo
+[![YoutubeVidéo](https://i.ytimg.com/vi/kruXJx68oHA/hqdefault.jpg)](https://youtu.be/kruXJx68oHA)
 ## Liste des taches
 ### Starter
 [Installe une liste de packet](roles/starter/tasks/main.yml#L5)
