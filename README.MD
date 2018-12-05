@@ -44,7 +44,8 @@ Attention, il faut avoir déployé l'application avant cette étape !
 
 ## Configuration
 #### Server side
-- Sur serveur Debian ou Ubuntu (testé sur Debian Stretch)
+- Sur serveur Debian ou Ubuntu (testé sur Debian Stretch et Ubuntu TLS)
+(Pour ubuntu, ajouter la ligne suivante dans le fichier host sur la meme ligne que l'adresse ip `ansible_python_interpreter=/usr/bin/python3`)
 - Il est nécessaire d'avoir pré-configuré un accés root ssh avec les clefs associées
 ```shell
 ssh root@xxx.xxx.xxx.xxx
